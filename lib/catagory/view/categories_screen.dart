@@ -260,7 +260,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: const TextStyle(color: Colors.white38, fontSize: 12),
+                  style: const TextStyle(color: Colors.white70, fontSize: 12),
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -300,7 +300,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         Text(
           label,
           style: TextStyle(
-            color: isTotal ? Colors.white : Colors.white38,
+            color: isTotal ? Colors.white : Colors.white70,
             fontSize: isTotal ? 18 : 14,
             fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
           ),

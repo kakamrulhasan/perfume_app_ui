@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -119,55 +121,117 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   const SizedBox(height: 40),
 
                   // Swipe To Start Button
-                  Container(
-                    width: double.infinity,
-                    height: 70,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(40),
-                      border: Border.all(color: Colors.white12),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailsCartScreen(),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+                      child: Container(
+                        width: double.infinity,
+                        height: 70,
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+
+                          // glass layer
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.white.withOpacity(0.10),
+                              Colors.white.withOpacity(0.04),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           ),
-                        );
-                      },
-                      child: Row(
-                        children: [
-                          // Circle Arrow
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF2D2D2D),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Icons.arrow_forward_rounded,
-                              color: Colors.white,
-                            ),
+
+                          // 🧊 border glow
+                          border: Border.all(
+                            color: Colors.white.withOpacity(0.18),
+                            width: 1,
                           ),
-                          // Text
-                          Expanded(
-                            child: Center(
-                              child: Text(
-                                'Swipe To Start',
-                                style: GoogleFonts.inter(
+
+                          // depth
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.7),
+                              blurRadius: 25,
+                              offset: const Offset(0, 12),
+                            ),
+                            BoxShadow(
+                              color: Colors.white.withOpacity(0.04),
+                              blurRadius: 10,
+                              offset: const Offset(-2, -2),
+                            ),
+                          ],
+                        ),
+
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(40),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DetailsCartScreen(),
+                              ),
+                            );
+                          },
+
+                          child: Row(
+                            children: [
+                              //  LEFT GLASS BUTTON
+                              Container(
+                                height: 50,
+                                width: 50,
+                                margin: const EdgeInsets.all(10),
+
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white.withOpacity(0.2),
+                                      Colors.black.withOpacity(0.01),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.18),
+                                  ),
+
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.white.withOpacity(0.08),
+                                      blurRadius: 10,
+                                    ),
+                                  ],
+                                ),
+
+                                child: const Icon(
+                                  Icons.arrow_forward_rounded,
                                   color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
-                            ),
+
+                              //  TEXT
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    'Swipe To Start',
+                                    style: GoogleFonts.inter(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.3,
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(width: 50),
+                            ],
                           ),
-                          // Empty space to balance the arrow layout
-                          const SizedBox(width: 50),
-                        ],
+                        ),
                       ),
                     ),
                   ),

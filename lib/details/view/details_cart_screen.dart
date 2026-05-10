@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../catagory/view/categories_screen.dart';
+
 class DetailsCartScreen extends StatefulWidget {
   const DetailsCartScreen({super.key});
 
@@ -265,10 +267,12 @@ class _DetailsCartScreenState extends State<DetailsCartScreen> {
                     // Add to Cart Button
                     InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => Test3()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CategoriesScreen(),
+                          ),
+                        );
                       },
                       child: _buildAddToCartButton(),
                     ),

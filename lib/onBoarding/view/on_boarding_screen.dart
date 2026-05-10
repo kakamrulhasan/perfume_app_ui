@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../details/view/details_cart_screen.dart';
@@ -27,11 +28,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
-            top: 10,
-            left: 4,
+            top: 10.h,
+            left: 4.w,
             child: Container(
-              width: 380,
-              height: 380,
+              width: 380.w,
+              height: 380.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
@@ -65,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           // 3. Content
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              padding: EdgeInsets.symmetric(horizontal: 30.0.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -80,7 +81,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       height: 1.2,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
 
                   // Subtitle
                   Text(
@@ -92,33 +93,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       letterSpacing: 0.2,
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   // Page Indicator
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 30,
-                        height: 3,
+                        width: 30.w,
+                        height: 3.h,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      const CircleAvatar(
-                        radius: 2,
-                        backgroundColor: Colors.grey,
-                      ),
-                      const SizedBox(width: 8),
-                      const CircleAvatar(
-                        radius: 2,
-                        backgroundColor: Colors.grey,
-                      ),
+                      SizedBox(width: 8.w),
+                      CircleAvatar(radius: 2.r, backgroundColor: Colors.grey),
+                      SizedBox(width: 8.w),
+                      CircleAvatar(radius: 2.r, backgroundColor: Colors.grey),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   // Swipe To Start Button
                   ClipRRect(
@@ -165,7 +160,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
 
                         child: InkWell(
-                          borderRadius: BorderRadius.circular(40),
+                          borderRadius: BorderRadius.circular(40.r),
                           onTap: () {
                             Navigator.push(
                               context,
